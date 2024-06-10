@@ -1,4 +1,4 @@
-<header class="p-3 bg-dark text-white">
+<header class="p-3 text-white" style="background-color: #212121;">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a>
@@ -13,27 +13,33 @@
 
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">Catalog</a></li>
-                <li><a href="#" class="nav-link px-2 text-white">About</a></li>
             </ul>
 
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                <input type="search" class="form-control form-control-dark" placeholder="Search..."
-                    aria-label="Search">
-            </form>
+            
 
             @auth
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="{{ route('catalogo') }}" class="nav-link px-2 text-white">Catalog</a></li>
+                <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            </ul>
                 {{ auth()->user()->name }}
                 <div class="text-end">
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-light me-2">Logout</a>
                 </div>
             @endauth
 
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                <input type="search" class="form-control form-control-dark" placeholder="Search..."
+                    aria-label="Search">
+            </form>
+
             @guest
                 <div class="text-end">
                     <a href="{{ route('login.perform') }}" class="btn btn-outline-light me-2">Login</a>
                     <a href="{{ route('register.perform') }}" class="btn btn-warning">Sign-up</a>
                 </div>
+
+                
             @endguest
         </div>
     </div>
