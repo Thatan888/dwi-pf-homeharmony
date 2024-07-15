@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +22,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/app', 'HomeController@app')->name('home.app');
+    Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -36,7 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/catalogo', function () {
             return view('catalogo');
         })->name('catalogo');
-        
+
 
     });
 
@@ -44,6 +49,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * Logout Routes
          */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+        Route::resource('/categories', CategoryController::class);
+        Route::resource('/articles', ArticleController::class);
     });
 });
