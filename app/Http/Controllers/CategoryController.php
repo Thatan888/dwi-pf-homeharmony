@@ -101,4 +101,11 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')
             ->with('success', 'Article category successfully removed.');
     }
+
+    public function autocomplete(Request $request)
+    {
+        $search = $request->get('name');
+        $result = Category::where('name', 'LIKE', '%'. $search. '%')->get();
+        return response()->json($result);
+    }
 }

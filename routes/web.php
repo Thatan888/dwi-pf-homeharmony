@@ -24,6 +24,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/app', 'HomeController@app')->name('home.app');
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+    Route::get('/autocomplete-category', [CategoryController::class, 'autocomplete'])->name('autocomplete.category');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
