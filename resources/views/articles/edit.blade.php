@@ -26,16 +26,14 @@
 					<input type="float" name="price" class="form-control" value="{{ $article->price }}" />
 				</div>
 			</div>
-			<div class="row mb-3">
-				<label class="col-sm-2 col-label-form">Article Category</label>
-				<div class="col-sm-10">
-					<select name="category_id" class="form-control">
-						@foreach($categories as $category)
-							<option value="{{ $category->id }}" @if($category->id == $article->category_id) selected @endif>{{ $category->name }}</option>
-						@endforeach
-					</select>
-				</div>
-			</div>
+			<div class="row mb-4">
+                <label class="col-sm-2 col-label-form">Category:</label>
+                <div class="col-sm-10">
+                    <input type="hidden" id="category_id" name="category_id">
+                    <input id="autocomplet_category" type="text" class="form-control"
+                        placeholder="Search for a category...">
+                </div>
+            </div>
             <div class="row mb-4">
 				<label class="col-sm-2 col-label-form">Article Image</label>
 				<div class="col-sm-10">

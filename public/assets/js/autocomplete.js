@@ -4,7 +4,7 @@ $('#autocomplet_category').typeahead({
         return item.name
     },
     afterSelect: function (item) {
-        $('#id').val(item.id);
+        $('#category_id').val(item.id);
     },
     source: function (term, process) {
         return $.get('/autocomplete-category', { term, term }, function (data) {

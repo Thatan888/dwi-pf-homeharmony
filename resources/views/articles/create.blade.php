@@ -51,7 +51,7 @@
                 </div>
             </div>
             <div class="row mb-4">
-                <label class="col-sm-2 col-label-form">Estudiante:</label>
+                <label class="col-sm-2 col-label-form">Category:</label>
                 <div class="col-sm-10">
                     <input type="hidden" id="category_id" name="category_id">
                     <input id="autocomplet_category" type="text" class="form-control"
