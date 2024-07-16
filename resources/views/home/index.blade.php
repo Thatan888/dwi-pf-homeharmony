@@ -6,7 +6,6 @@
             <h1>Inicio</h1>
             <p class="lead">Usuario autenticado</p>
         @endauth
-
         @guest
             <div class="container-fluid responsive-container" style="background-color: #53ACAF;">
                 <div class="text-center">
@@ -20,7 +19,6 @@
                     </p>
                 </div>
             </div>
-
             <div class="container containerbg pt-4">
                 <p class="text-dark text-center fs-1">Populares</p>
                 <div class="row">
