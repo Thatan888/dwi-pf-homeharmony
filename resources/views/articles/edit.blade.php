@@ -29,9 +29,9 @@
 			<div class="row mb-4">
                 <label class="col-sm-2 col-label-form">Category:</label>
                 <div class="col-sm-10">
-                    <input type="hidden" id="category_id" name="category_id">
+                    <input type="hidden" id="category_id" name="category_id" value="{{ $article->category->id }}">
                     <input id="autocomplet_category" type="text" class="form-control"
-                        placeholder="Search for a category...">
+                        placeholder="Search for a category..." value="{{ $article->category->name }}">
                 </div>
             </div>
             <div class="row mb-4">
