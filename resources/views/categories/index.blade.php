@@ -35,9 +35,11 @@
                         <form method="post" action="{{ route('categories.destroy', $category->id) }}">
                             @csrf
                             @method('DELETE')
-                            <a href="{{ route('categories.show', $category->id) }}" class="btn btn-primary btn-sm">View</a>
-                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                            <input type="submit" class="btn btn-danger btn-sm" value="Delete" />
+                            <div class="d-flex flex-column">
+                                <a href="{{ route('categories.show', $category->id) }}" class="btn btn-primary btn-sm mb-1">View</a>
+                                <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-warning btn-sm mb-1">Edit</a>
+                                <input type="submit" class="btn btn-danger btn-sm" value="Delete" />
+                            </div>
                         </form>
                     </td>
                 </tr>
