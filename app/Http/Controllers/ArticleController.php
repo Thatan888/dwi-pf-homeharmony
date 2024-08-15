@@ -94,7 +94,6 @@ class ArticleController extends Controller
 
         if ($request->article_image != '') {
             $article_image = time() . '.' . request()->article_image->getClientOriginalExtension();
-
             request()->article_image->move(public_path('images'), $article_image);
         }
 

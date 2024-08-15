@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ArticleController;
@@ -23,6 +24,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      */
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/app', 'HomeController@app')->name('home.app');
+    Route::get('/about', 'AboutController@index')->name('about');
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     Route::get('/autocomplete-category', [CategoryController::class, 'autocomplete'])->name('autocomplete.category');
 
