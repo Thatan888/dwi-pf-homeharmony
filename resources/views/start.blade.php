@@ -48,7 +48,7 @@
                 <div class="row d-flex justify-content-between">
                     <div class="col-md-3 aos-init" data-aos="fade-up">
                         <div class="card">
-                            <img src="imagesArticles/tables.jpg" class="card-img-top" alt="Tables View">
+                            <img src="imagesArticles/tables.jpg" class="card-img-top" alt="Tables View" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Tables</h5>
                             </div>
@@ -56,8 +56,7 @@
                     </div>
                     <div class="col-md-3 aos-init" data-aos="fade-up">
                         <div class="card">
-                            <img src="imagesArticles/camas y tocadores.jpg" class="card-img-top"
-                                alt="Beds and Dressing tables">
+                            <img src="imagesArticles/camas y tocadores.jpg" class="card-img-top" alt="Beds and Dressing tables" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Beds and Dressing Tables</h5>
                             </div>
@@ -65,7 +64,7 @@
                     </div>
                     <div class="col-md-3 aos-init" data-aos="fade-up">
                         <div class="card">
-                            <img src="imagesArticles/sillones.jpg" class="card-img-top" alt="Armchairs">
+                            <img src="imagesArticles/sillones.jpg" class="card-img-top" alt="Armchairs" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Armchairs</h5>
                             </div>
@@ -73,7 +72,7 @@
                     </div>
                     <div class="col-md-3 aos-init" data-aos="fade-up">
                         <div class="card">
-                            <img src="imagesArticles/comedores.jpg" class="card-img-top" alt="Canteens">
+                            <img src="imagesArticles/comedores.jpg" class="card-img-top" alt="Canteens" loading="lazy">
                             <div class="card-body">
                                 <h5 class="card-title text-center">Canteens</h5>
                             </div>
@@ -81,6 +80,7 @@
                     </div>
                 </div>
             </div>
+            
         </section>
     </div>
 @endsection

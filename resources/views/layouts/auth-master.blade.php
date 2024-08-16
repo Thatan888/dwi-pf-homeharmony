@@ -30,11 +30,10 @@
     </style>
 
 
-    <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
 </head>
 
-<body class="text-center">
+<body class="text-center pb-4" style="background-color: #3B5D50;">
 
     <main class="form-signin">
 

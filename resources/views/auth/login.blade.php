@@ -1,68 +1,110 @@
 @extends('layouts.auth-master')
 
 @section('content')
-    <section class="vh-100" style="background-color: #000000;">
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col col-xl-10">
-                    <div class="card" style="border-radius: 1rem;">
-                        <div class="row g-0">
-                            <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="{{ url('images/books-3733892_1280.jpg') }}" alt="login form" class="img-fluid"
-                                    style="border-radius: 1rem 0 0 1rem;" />
-                            </div>
-                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                                <div class="card-body p-4 p-lg-5 text-black">
+    <section class="vh-100 d-flex align-items-center justify-content-center">
+        <div class="form">
+            <div class="title">Welcome,<br><span>Sign in to continue</span></div>
+            <form method="post" action="{{ route('login.perform') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                                    <form method="post" action="{{ route('login.perform') }}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                        {{-- <div class="d-flex align-items-center mb-3 pb-1">
-                                            <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                            <span class="h1 fw-bold mb-0">Logo</span>
-                                        </div> --}}
+                @include('layouts.partials.messages')
 
-                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account
-                                        </h5>
+                <input type="text" placeholder="Username" name="username" class="input" value="{{ old('username') }}"
+                    required="required" autofocus>
+                @if ($errors->has('username'))
+                    <span class="text-danger text-left">{{ $errors->first('username') }}</span>
+                @endif
 
-                                        @include('layouts.partials.messages')
+                <input type="password" placeholder="Password" name="password" class="input" value="{{ old('password') }}"
+                    required="required">
+                @if ($errors->has('password'))
+                    <span class="text-danger text-left">{{ $errors->first('password') }}</span>
+                @endif
 
-                                        <div data-mdb-input-init class="form-group form-floating form-outline mb-4">
-                                            <input type="text" id="form2Example17" value="{{ old('username') }}"
-                                                placeholder="Username" class="form-control form-control-lg" name="username"
-                                                required="required" autofocus>
-                                            <label class="form-label" for="floatingName form2Example17">Email
-                                                address</label>
-                                            @if ($errors->has('username'))
-                                                <span class="text-danger text-left">{{ $errors->first('username') }}</span>
-                                            @endif
-                                        </div>
-
-                                        <div data-mdb-input-init class="form-group form-floating form-outline mb-4">
-                                            <input type="password" class="form-control form-control-lg" name="password"
-                                                value="{{ old('password') }}" placeholder="Password"
-                                                required="required id="form2Example27"">
-                                            <label class="form-label" for="form2Example27 floatingPassword">Password</label>
-                                            @if ($errors->has('password'))
-                                                <span class="text-danger text-left">{{ $errors->first('password') }}</span>
-                                            @endif
-                                        </div>
-
-                                        <div class="pt-1 mb-4">
-                                            <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
-                                            <a href="{{ route('home.index') }}" class="w-100 btn btn-lg mt-2 btn-secondary">Back</a>
-                                        </div>
-                                        @include('auth.partials.copy')
-                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account? <a
-                                                href="{{ route('register.perform') }}" style="color: #393f81;">Register
-                                                here</a></p>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <button class="button-confirm" type="submit">Let's go →</button>
+            </form>
+            <a href="{{ route('home.index') }}" class="button-confirm">Back</a>
+            <p class="mt-4" style="color: #393f81;">Don't have an account? <a href="{{ route('register.perform') }}"
+                    style="color: #393f81;">Register here</a></p>
         </div>
     </section>
+    <style>
+        .form {
+            --input-focus: #2d8cf0;
+            --font-color: #323232;
+            --font-color-sub: #666;
+            --bg-color: #fff;
+            --main-color: #323232;
+            padding: 20px;
+            background: lightgrey;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            align-items: center;
+            
+        }
+
+        .title {
+            color: var(--font-color);
+            font-weight: 900;
+            font-size: 20px;
+            margin-bottom: 25px;
+            text-align: center;
+            /* Centramos el texto del título */
+        }
+
+        .title span {
+            color: var(--font-color-sub);
+            font-weight: 600;
+            font-size: 17px;
+        }
+
+        .input {
+            width: 250px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--font-color);
+            padding: 5px 10px;
+            outline: none;
+        }
+
+        .input::placeholder {
+            color: var(--font-color-sub);
+            opacity: 0.8;
+        }
+
+        .input:focus {
+            border: 2px solid var(--input-focus);
+        }
+
+        .button-confirm {
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--font-color);
+            cursor: pointer;
+        }
+    </style>
 @endsection

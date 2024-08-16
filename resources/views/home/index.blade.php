@@ -48,8 +48,10 @@
                                 <h5 class="card-title">Create</h5>
                                 <p>Create new items with all necessary information.</p>
                                 <div>
-                                    <button class="btn"><i class="animation"></i>Create Items<i class="animation"></i>
-                                    </button>
+                                    <a href="{{ route('articles.create') }}" class="btn1">
+                                        <i class="animation"></i>Add Item<i class="animation"></i>
+                                    </a>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -61,8 +63,9 @@
                                 <h5 class="card-title">Edit</h5>
                                 <p>Modify the details of existing items.<br>.</p>
                                 <div>
-                                    <button class="btn"><i class="animation"></i>Modify Items<i class="animation"></i>
-                                    </button>
+                                    <a href="{{ route('articles.index') }}" class="btn2">
+                                        <i class="animation"></i>Edit Item<i class="animation"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -74,8 +77,9 @@
                                 <h5 class="card-title">Delete</h5>
                                 <p>Remove items that are no longer needed.</p>
                                 <div>
-                                    <button class="btn"><i class="animation"></i> Delete Items<i class="animation"></i>
-                                    </button>
+                                    <a href="{{ route('articles.index') }}" class="btn3">
+                                        <i class="animation"></i>Delete Item<i class="animation"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -87,8 +91,9 @@
                                 <h5 class="card-title">View</h5>
                                 <p>Consult and review the details of each item.</p>
                                 <div>
-                                    <button class="btn"><i class="animation"></i>View Items<i class="animation"></i>
-                                    </button>
+                                    <a href="{{ route('articles.index') }}" class="btn4">
+                                        <i class="animation"></i>View Items<i class="animation"></i>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -143,12 +148,72 @@
         }
 
         /* From Uiverse.io by mi-series */
-        .btn {
+        .btn1 {
             outline: 0;
             display: inline-flex;
             align-items: center;
             justify-content: space-between;
-            background: #40B3A2;
+            background: #55b340;
+            min-width: 200px;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+            box-sizing: border-box;
+            padding: 16px 20px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .btn2 {
+            outline: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #afb340;
+            min-width: 200px;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+            box-sizing: border-box;
+            padding: 16px 20px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .btn3 {
+            outline: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #b34040;
+            min-width: 200px;
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1);
+            box-sizing: border-box;
+            padding: 16px 20px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .btn4 {
+            outline: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #40a9b3;
             min-width: 200px;
             border: 0;
             border-radius: 4px;
@@ -164,11 +229,38 @@
             cursor: pointer;
         }
 
-        .btn:hover {
+        .btn1:hover {
             opacity: .95;
         }
 
-        .btn .animation {
+        .btn1 .animation {
+            border-radius: 100%;
+            animation: ripple 0.6s linear infinite;
+        }
+
+        .btn2:hover {
+            opacity: .95;
+        }
+
+        .btn2 .animation {
+            border-radius: 100%;
+            animation: ripple 0.6s linear infinite;
+        }
+
+        .btn3:hover {
+            opacity: .95;
+        }
+
+        .btn3 .animation {
+            border-radius: 100%;
+            animation: ripple 0.6s linear infinite;
+        }
+
+        .btn4:hover {
+            opacity: .95;
+        }
+
+        .btn4 .animation {
             border-radius: 100%;
             animation: ripple 0.6s linear infinite;
         }

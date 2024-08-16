@@ -1,3 +1,33 @@
+<style>
+    .nav-item-hover {
+        position: relative;
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        overflow: hidden;
+        transition: color 0.4s;
+    }
+
+    .nav-item-hover::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+        bottom: 0;
+        left: -100%;
+        transition: left 0.4s ease;
+    }
+
+    .nav-item-hover:hover::before {
+        left: 0;
+    }
+
+    .nav-item-hover:hover {
+        color: #ffeb3b;
+    }
+</style>
+
 <header class="p-3 text-white" style="background-color: #3B5D50;">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-between">
@@ -8,14 +38,22 @@
 
                 <a class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap"/>
+                        <use xlink:href="#bootstrap" />
                     </svg>
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li>
-                        <a href="{{ auth()->check() ? route('home.app') : '/' }}" class="nav-link pt-3 fw-bold text-white">Home</a>
-                    </li>
+                    @if (auth()->check())
+                        <li>
+                            <a href="{{ route('home.app') }}"
+                                class="nav-link pt-3 fw-bold text-white nav-item-hover">Home</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="/" class="nav-link pt-3 fw-bold text-white nav-item-hover">Home</a>
+                        </li>
+                    @endif
+
 
                     @auth
                         <div class="menu ms-3 pt-1">
@@ -185,7 +223,8 @@
                             }
                         </style>
                     @endauth
-                    <li><a href="{{ route('about') }}" class="nav-link pt-3 fw-bold text-white">About Us</a></li>
+                    <li><a href="{{ route('about') }}" class="nav-link pt-3 fw-bold text-white nav-item-hover">About
+                            Us</a></li>
                 </ul>
             </div>
 
