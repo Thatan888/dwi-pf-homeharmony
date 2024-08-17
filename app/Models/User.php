@@ -23,7 +23,10 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+        'birthdate',
+        'rfc',
     ];
+    
 
     public function setPasswordAttribute($value)
     {

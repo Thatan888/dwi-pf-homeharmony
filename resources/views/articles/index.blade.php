@@ -25,6 +25,8 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Category</th>
+                <th>Registration Date</th>
+                <th>Status</th>
                 <th>Action</th>
             </tr>
             @if(count($articles) > 0)
@@ -35,6 +37,8 @@
                 <td>{{ $article->description }}</td>
                 <td>{{ $article->price }}</td>
                 <td>{{ $article->category->name }}</td>
+                <td>{{ $article->registered_at ? $article->registered_at->format('Y-m-d') : 'N/A' }}</td>
+                <td>{{ $article->status ? 'Active' : 'Inactive' }}</td>
                 <td>
                     <form method="post" action="{{ route('articles.destroy', $article->id) }}">
                         @csrf
@@ -48,7 +52,7 @@
             @endforeach
             @else
             <tr>
-                <td colspan="6" class="text-center">No Data Found</td>
+                <td colspan="8" class="text-center">No Data Found</td>
             </tr>
             @endif
         </table>

@@ -12,6 +12,10 @@
                 <li>The description field is required.</li>
             @elseif($error == 'The price field is required.')
                 <li>The price field is required.</li>
+            @elseif($error == 'The registration date field is required.')
+                <li>The registration date field is required.</li>
+            @elseif($error == 'The status field is required.')
+                <li>The status field is required.</li>
             @else
                 <li>{{ $error }}</li>
             @endif
@@ -59,11 +63,31 @@
                 </div>
             </div>
             <div class="row mb-4">
-				<label class="col-sm-2 col-label-form">Article Image</label>
-				<div class="col-sm-10">
-					<input type="file" name="article_image" />
-				</div>
-			</div>
+                <label class="col-sm-2 col-label-form">Article Image:</label>
+                <div class="col-sm-10">
+                    <input type="file" name="article_image" />
+                </div>
+            </div>
+
+            <!-- Campo para fecha de registro -->
+            <div class="row mb-4">
+                <label class="col-sm-2 col-label-form">Registration Date:</label>
+                <div class="col-sm-10">
+                    <input type="date" name="registration_date" class="form-control" />
+                </div>
+            </div>
+
+            <!-- Campo para estatus -->
+            <div class="row mb-4">
+                <label class="col-sm-2 col-label-form">Status:</label>
+                <div class="col-sm-10">
+                    <select name="status" class="form-control">
+                        <option value="1">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+            </div>
+
             <div class="text-center">
                 <input type="submit" class="btn btn-primary" value="Add" />
             </div>

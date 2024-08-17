@@ -15,7 +15,14 @@ class Article extends Model
         'description',
         'price',
         'category_id',
+        'registered_at',
+        'status',
     ];
+
+    protected $casts = [
+        'registered_at' => 'datetime',
+    ];
+    
 
     public function category()
     {

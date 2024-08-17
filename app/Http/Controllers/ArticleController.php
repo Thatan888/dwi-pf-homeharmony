@@ -34,11 +34,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'article_image'         =>  'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+            'article_image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
             'title' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'status' => 'required|boolean',
         ]);
 
         $file_name = time() . '.' . request()->article_image->getClientOriginalExtension();
@@ -52,11 +53,14 @@ class ArticleController extends Controller
         $article->description = $request->description;
         $article->price = $request->price;
         $article->category_id = $request->category_id;
+        $article->registered_at = now();
+        $article->status = $request->status;
 
         $article->save();
 
         return redirect()->route('articles.index')->with('success', 'Article added successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -83,18 +87,21 @@ class ArticleController extends Controller
     public function update(Request $request, Article $article)
     {
         $request->validate([
-            'article_image'     =>  'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
+            'article_image' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
             'title' => 'required',
             'description' => 'required',
             'price' => 'required|numeric',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'status' => 'required|boolean',
         ]);
 
         $article_image = $request->hidden_article_image;
-
-        if ($request->article_image != '') {
-            $article_image = time() . '.' . request()->article_image->getClientOriginalExtension();
-            request()->article_image->move(public_path('images'), $article_image);
+        if ($request->hasFile('article_image')) {
+            if (file_exists(public_path('imagesArticles/' . $article_image))) {
+                unlink(public_path('imagesArticles/' . $article_image));
+            }
+            $article_image = time() . '.' . $request->article_image->getClientOriginalExtension();
+            $request->article_image->move(public_path('imagesArticles'), $article_image);
         }
 
         Log::info($article);
@@ -104,6 +111,7 @@ class ArticleController extends Controller
         $article->description = $request->description;
         $article->price = $request->price;
         $article->category_id = $request->category_id;
+        $article->status = $request->status;
 
         $article->save();
 

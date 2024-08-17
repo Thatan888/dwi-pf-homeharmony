@@ -3,11 +3,9 @@
 @section('content')
 
 @if($errors->any())
-
 <div class="alert alert-danger">
     <ul>
     @foreach($errors->all() as $error)
-
         @if($error =='The name field is required.')
         <li>The title field is required.</li>
         @elseif($error =='The description field is required.')
@@ -17,13 +15,10 @@
         @else
         <li>{{ $error }}</li>
         @endif
-
     @endforeach
     </ul>
 </div>
-
 @endif
-
 
 <div class="card">
     <div class="card-header">
@@ -62,12 +57,25 @@
             </div>
         </div>
         <div class="row mb-4">
-			<label class="col-sm-2 col-label-form"><b>Aticle Image</b></label>
-			<div class="col-sm-10">
-				<img src="{{ asset('imagesArticles/' .  $article->article_image) }}" width="200" class="img-thumbnail" />
-			</div>
-		</div>
+            <label class="col-sm-2 col-label-form"><b>Article Image</b></label>
+            <div class="col-sm-10">
+                <img src="{{ asset('imagesArticles/' .  $article->article_image) }}" width="200" class="img-thumbnail" />
+            </div>
+        </div>
+        <div class="row mb-4">
+            <label class="col-sm-2 col-label-form"><b>Registration Date</b></label>
+            <div class="col-sm-10">
+                {{ $article->registered_at ? $article->registered_at->format('Y-m-d') : 'N/A' }}
+            </div>
+        </div>
+        
+        <div class="row mb-4">
+            <label class="col-sm-2 col-label-form"><b>Status</b></label>
+            <div class="col-sm-10">
+                {{ $article->status ? 'Active' : 'Inactive' }}
+            </div>
+        </div>
     </div>
 </div>
 
-@endsection('content')
+@endsection

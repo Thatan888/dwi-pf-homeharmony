@@ -230,7 +230,7 @@
 
             @auth
                 <div class="d-flex align-items-center fw-bold">
-                    <span class="text-white me-3">{{ auth()->user()->name }}</span>
+                    <span class="text-white me-3">{{ auth()->user()->username  . ' - ' . auth()->user()->fatherlastname }}</span>
                     <a href="{{ route('logout.perform') }}" class="btn btn-outline-light">Logout</a>
                 </div>
             @endauth

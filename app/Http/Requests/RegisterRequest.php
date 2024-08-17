@@ -30,7 +30,9 @@ class RegisterRequest extends FormRequest
             'email' => 'required|email:rfc,dns|unique:users,email',
             'username' => 'required|string|unique:users,username|max:255',
             'password' => 'required|string|min:8',
-            'password_confirmation' => 'required|same:password'
+            'password_confirmation' => 'required|same:password',
+            'birthdate' => 'required|date|before:today',
+            'rfc' => 'required|string|size:13|unique:users,rfc',
         ];
     }
 }

@@ -43,6 +43,22 @@
                 @endif
             </div>
 
+            <!-- Campo para fecha de nacimiento -->
+            <div class="input-group mb-3">
+                <input type="date" class="input" name="birthdate" value="{{ old('birthdate') }}" placeholder="Birthdate" required="required">
+                @if ($errors->has('birthdate'))
+                    <span class="text-danger text-left">{{ $errors->first('birthdate') }}</span>
+                @endif
+            </div>
+
+            <!-- Campo para RFC -->
+            <div class="input-group mb-3">
+                <input type="text" class="input" name="rfc" value="{{ old('rfc') }}" placeholder="RFC" required="required" maxlength="13">
+                @if ($errors->has('rfc'))
+                    <span class="text-danger text-left">{{ $errors->first('rfc') }}</span>
+                @endif
+            </div>
+
             <div class="input-group mb-3">
                 <input type="password" class="input" name="password" value="{{ old('password') }}" placeholder="Password" required="required">
                 @if ($errors->has('password'))
@@ -68,7 +84,6 @@
         </form>
     </div>
 </section>
-
 <style>
     .form {
         --input-focus: #2d8cf0;
