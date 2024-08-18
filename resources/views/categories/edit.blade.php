@@ -4,8 +4,14 @@
 
 <div class="card">
     <div class="card-header" style="background-color: #BFE9BF;">
-        <div class="fs-3">Edit Furniture Category</div>
+<div class="row">
+        <div class="col col-md-6 fs-1"><b>Edit Furniture Category</b></div>
+        <div class="col col-md-6 text-end">
+            <a href="{{ route('categories.index') }}" class="custom-link">Back</a>
+        </div>
     </div>
+    </div>
+    
     <div class="card-body">
         <form method="post" action="{{ route('categories.update', $category->id) }}">
             @csrf
@@ -68,6 +74,36 @@
     .text-center {
         text-align: center;
     }
+
+    .custom-link {
+        color: #ecf0f1;
+        font-size: 17px;
+        background-color: #3B5D50;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 10px;
+        box-shadow: 0px 6px 0px #578775;
+        transition: all 0.1s;
+        display: inline-block;
+    }
+
+    .custom-link:active {
+        box-shadow: 0px 2px 0px #3B5D50;
+        position: relative;
+        top: 2px;
+    }
+
+    .custom-link {
+        color: #ecf0f1;
+        text-decoration: none;
+    }
+
+    .custom-link:hover {
+        color: #ecf0f1;
+        text-decoration: none;
+    }
+
 </style>
 
 @endsection
