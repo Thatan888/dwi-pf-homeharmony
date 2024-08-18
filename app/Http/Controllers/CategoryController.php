@@ -13,9 +13,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        // Cambia '10' por el número de elementos que quieras mostrar por página
+        $categories = Category::paginate(10);
         return view('categories.index', compact('categories'));
     }
+
 
     /**
      * Muestra el formulario para crear una nueva categoría de artículo.
@@ -78,7 +80,7 @@ class CategoryController extends Controller
     public function update(Request $request, Category $category)
     {
         $request->validate([
-            'name' => 'required|max:255|unique:categories,name,'.$category->id,
+            'name' => 'required|max:255|unique:categories,name,' . $category->id,
             'description' => 'nullable',
         ]);
 
@@ -105,7 +107,7 @@ class CategoryController extends Controller
     public function autocomplete(Request $request)
     {
         $search = $request->get('name');
-        $result = Category::where('name', 'LIKE', '%'. $search. '%')->get();
+        $result = Category::where('name', 'LIKE', '%' . $search . '%')->get();
         return response()->json($result);
     }
 }
