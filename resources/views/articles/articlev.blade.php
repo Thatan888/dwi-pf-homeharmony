@@ -5,9 +5,6 @@
     <h1 class="mb-4 text-center text-light">Articles</h1>
     <div class="row">
         @foreach($articles as $article)
-            @php
-                $isWideImage = $article->image_width > $article->image_height; // Suponiendo que tienes el ancho y alto de la imagen
-            @endphp
             <div class="col-md-6 mb-4">
                 <div class="card shadow-lg border-light rounded" style="background-color: #BFE9BF; height: 100%;">
                     <div class="row g-0">
