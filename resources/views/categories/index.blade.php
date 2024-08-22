@@ -79,23 +79,27 @@
     .custom-link:hover {
         color: #ecf0f1;
         background-color: #2e4a41;
+        text-decoration: none;
     }
 
     .category-card {
         border: 1px solid #ddd;
         border-radius: .375rem;
         transition: transform 0.3s;
-        cursor: pointer; /* Pointer cursor for the card */
+        cursor: pointer;
+        text-decoration: none;
     }
 
     .category-card:hover {
         transform: scale(1.05);
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
     }
 
     .category-card-link {
         text-decoration: none;
         color: inherit;
+        text-decoration: none;
     }
 
     .button {

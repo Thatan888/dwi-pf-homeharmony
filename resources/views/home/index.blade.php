@@ -101,15 +101,6 @@
                 </div>
             </div>
 
-            <div class="container-fluid welcome-section bg-light rounded pt-3 pb-3">
-                <div class="row text-center mt-4">
-                    <div class="col-lg-12">
-                        <p>If you need help or have any questions, feel free to contact our support team at <a
-                                href="mailto:support@example.com">support@example.com</a> or <strong>[Phone Number]</strong>. We
-                            are here to help you.</p>
-                    </div>
-                </div>
-            </div>
         @endauth
     </div>
 

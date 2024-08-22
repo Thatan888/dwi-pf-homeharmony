@@ -28,6 +28,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     Route::get('/autocomplete-category', [CategoryController::class, 'autocomplete'])->name('autocomplete.category');
 
+    Route::get('/articles/view', [ArticleController::class, 'publicIndex'])->name('articles.view');
+
+
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
