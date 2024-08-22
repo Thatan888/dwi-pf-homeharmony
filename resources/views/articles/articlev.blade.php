@@ -8,11 +8,6 @@
             <div class="col-md-6 mb-4">
                 <div class="card shadow-lg border-light rounded" style="background-color: #BFE9BF; height: 100%;">
                     <div class="row g-0">
-                        @if($isWideImage)
-                            <div class="col-md-12">
-                                <img src="{{ asset('imagesArticles/' . $article->article_image) }}" class="img-fluid rounded-start wide-image" alt="Article Image" />
-                            </div>
-                        @else
                             <div class="col-md-5">
                                 <img src="{{ asset('imagesArticles/' . $article->article_image) }}" class="img-fluid rounded-start" alt="Article Image" />
                             </div>
@@ -24,7 +19,6 @@
                                     <p class="card-text"><strong>Category:</strong> {{ $article->category->name }}</p>
                                 </div>
                             </div>
-                        @endif
                     </div>
                 </div>
             </div>
